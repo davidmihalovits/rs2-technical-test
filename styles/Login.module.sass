@@ -1,0 +1,58 @@
+@import './variables.sass'
+
+.container
+    margin: 100px 15px
+
+    .login
+        .form
+            .label
+                font-family: 'Work Sans'
+                font-weight: 300
+                font-size: 14px
+
+            .input
+                font-family: 'Work Sans'
+                width: 100%
+                border: 1px solid black
+                border-radius: 2px
+                outline: none
+                font-size: 16px
+                font-weight: 400
+                padding: 8px
+                margin: 2px 0 20px 0
+
+                &:focus
+                    border: 1px solid $primary-color
+                    color: $primary-color
+
+            .button
+                display: block
+                margin: 20px auto 0 auto
+                color: #fff
+                font-size: 16px
+                font-weight: 500
+                font-family: 'Work Sans'
+                outline: none
+                border-radius: 20px
+                border: none
+                background-color: $primary-color
+                width: 160px
+                height: 45px
+                cursor: pointer
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3)
+                transition: 0.4s
+
+                &:disabled
+                    background-color: #ebebeb
+                    box-shadow: none
+                    cursor: not-allowed
+
+@media only screen and (min-width: 1300px)
+    .container
+        margin: 160px 0
+
+        .login
+            width: 300px
+            margin: 0 auto
+
+            

@@ -1,0 +1,60 @@
+@import './variables.sass'
+
+.container
+    background: rgba(#fff,.95)
+    padding: 15px
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    z-index: 10
+
+    .navbar
+        display: grid
+        grid-template-columns: 1fr auto
+        align-items: center
+
+        .title
+            font-size: 20px
+            font-weight: 900
+            font-family: 'Work Sans'
+            cursor: pointer
+
+        .button
+            justify-self: end
+            color: #fff
+            font-size: 16px
+            font-weight: 500
+            font-family: 'Work Sans'
+            outline: none
+            border-radius: 20px
+            border: none
+            background-color: $primary-color
+            width: 110px
+            height: 40px
+            cursor: pointer
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3)
+
+        .name
+            font-size: 14px
+            font-weight: 400
+            font-family: 'Work Sans'
+
+        .logout
+            justify-self: end
+            background: none
+            border: none
+            color: $primary-color
+            font-weight: 500
+            cursor: pointer
+            outline: none
+            font-size: 16px
+
+@media only screen and (min-width: 1300px)
+    .container
+        padding: 30px 0
+
+        .navbar
+            width: 1300px
+            margin: 0 auto
+            

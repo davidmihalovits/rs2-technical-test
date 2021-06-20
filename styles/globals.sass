@@ -1,0 +1,17 @@
+@import './variables.sass'
+    
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+
+::placeholder
+    color: #e4e4e4
+
+// safari + iOS input fields styling
+input[type="text"], input[type="email"], input[type="password"]
+    -webkit-appearance: none
+    -moz-appearance: none
+    appearance: none
+    caret-color: $primary-color
+
