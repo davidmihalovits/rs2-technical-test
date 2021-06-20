@@ -15,15 +15,16 @@ const Login = () => {
         if (token) {
             router.push("/dashboard");
         }
-    }, []);
+    }, [router]);
 
+    // login
     const submit = async (e) => {
         e.preventDefault();
 
         setLoading(true);
 
+        // some delay to mock loading and logging in
         const delay = (ms) => new Promise((res) => setTimeout(res, ms));
-
         await delay(2000);
 
         setLoading(false);
@@ -40,7 +41,7 @@ const Login = () => {
             <div className={styles.login}>
                 <form className={styles.form} onSubmit={submit} noValidate>
                     <label className={styles.label} htmlFor="name">
-                        Name
+                        Name (anything)
                     </label>
                     <input
                         id="name"
@@ -51,7 +52,7 @@ const Login = () => {
                         className={styles.input}
                     />
                     <label className={styles.label} htmlFor="password">
-                        Password
+                        Password (anything)
                     </label>
                     <input
                         id="password"

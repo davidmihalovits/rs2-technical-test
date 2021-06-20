@@ -1,26 +1,31 @@
 import styles from "../styles/Navbar.module.sass";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
-const Navbar = (props) => {
+const Navbar = () => {
+    const [token, setToken] = useState("");
+
     const router = useRouter();
 
+    // the navbar changes after the user logs in/out
     useEffect(() => {
         const token = localStorage.getItem("token");
-        props.setToken(token);
-    }, [props]);
+
+        setToken(token);
+    }, [router]);
 
     const logout = () => {
         localStorage.removeItem("token");
         router.push("/");
     };
 
-    if (props.token) {
+    // if authenticated
+    if (token) {
         return (
             <div className={styles.container}>
                 <div className={styles.navbar}>
-                    <p className={styles.name}>Hello, {props.token}!</p>
+                    <p className={styles.name}>Hello, {token}!</p>
                     <button className={styles.logout} onClick={logout}>
                         Logout
                     </button>
@@ -29,6 +34,7 @@ const Navbar = (props) => {
         );
     }
 
+    // if not authenticated
     return (
         <div className={styles.container}>
             <div className={styles.navbar}>

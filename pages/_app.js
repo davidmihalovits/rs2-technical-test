@@ -1,13 +1,10 @@
 import "../styles/globals.sass";
 import "../styles/variables.sass";
 import Head from "next/head";
-import { useState } from "react";
 
 import Navbar from "../components/Navbar";
 
 const App = ({ Component, pageProps }) => {
-    const [token, setToken] = useState("");
-
     return (
         <>
             <Head>
@@ -22,7 +19,7 @@ const App = ({ Component, pageProps }) => {
                 <title>RS2 Test</title>
             </Head>
 
-            <Navbar token={token} setToken={setToken} />
+            <Navbar />
 
             <Component {...pageProps} />
         </>

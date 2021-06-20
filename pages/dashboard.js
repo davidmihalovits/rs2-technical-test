@@ -18,9 +18,10 @@ const Dashboard = () => {
         if (!token) {
             router.push("/login");
         }
-    }, []);
+    }, [router]);
 
-    const onChange = (param) => {
+    // change quantity for a specific product
+    const changeQuantity = (param) => {
         let product = products.find((pr) => pr.ID === param.p.ID);
 
         if (basket.includes(product)) {
@@ -30,6 +31,7 @@ const Dashboard = () => {
         product.qty = param.e.target.value;
     };
 
+    // add a specific product to the basket
     const addToBasket = (p) => {
         let product = products.find((pr) => pr.ID === p.ID);
 
@@ -44,12 +46,14 @@ const Dashboard = () => {
         setBasket([...basket, product]);
     };
 
+    // can only input letters and space in the search field
     const handleSearch = (e) => {
         if (e.target.value.match("^[a-zA-Z ]*$") !== null) {
             setSearch(e.target.value);
         }
     };
 
+    // filter products based on what we search for and the selected type
     const filteredProducts = products
         .filter((name) =>
             name.Name.toLowerCase().includes(search.toLowerCase())
@@ -159,7 +163,9 @@ const Dashboard = () => {
                                         id={p.ID}
                                         name="quantity"
                                         type="number"
-                                        onChange={(e) => onChange({ e, p })}
+                                        onChange={(e) =>
+                                            changeQuantity({ e, p })
+                                        }
                                         className={styles.input}
                                     />
                                 </div>
